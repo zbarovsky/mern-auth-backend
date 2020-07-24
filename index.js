@@ -39,6 +39,7 @@ app.get('/', (req, res) => {
 app.use(passport.initialize())
 
 // passport JWT token set/config
+require('./config/passport')(passport)
 
 // setup our routes
 
