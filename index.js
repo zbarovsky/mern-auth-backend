@@ -29,9 +29,14 @@ const db = process.env.MONGOD_URI
 mongoose.connect(db)
     .then((() => console.log('MongoDB connected... 🥭')))
     .catch(err => console.log(err))
+
 // test routing
+app.get('/', (req, res) => {
+    res.send("Hello world!\n Server is up and running 👍")
+})
 
 // passport middleware
+app.use(passport.initialize())
 
 // passport JWT token set/config
 
