@@ -42,7 +42,9 @@ router.post('/register', function(req, res) {
 
             bcrypt.genSalt(10, (err, salt) => {
                 bcrypt.hash(newUser.password, salt, (err, hash) => {
-                    if (err) throw err
+                    if (err)  {
+                        throw err
+                    }
                     // if no error, set password to hash
                     newUser.password = hash
                     newUser.save()
@@ -82,11 +84,8 @@ router.post('/login', function (req, res) {
                         // if password doesn't match
                         return res.status(400).json({password: 'Password incorrect.'})
                     }
-
                 })
-            
         })
-
 })
 
 // GET if already logged in, set user data to current
